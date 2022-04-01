@@ -1,5 +1,12 @@
 import { Client, MessageReaction, PartialMessageReaction, PartialUser, User } from 'discord.js'
 
+/**
+ * async function updateParticipantCount
+ * since the original schedule.ts embed cannot be changed dynamically,
+ * we fetch it here and can modify the count of reactions.
+ * @param message 
+ * @param react 
+ */
 async function updateParticipantCount(message: MessageReaction | PartialMessageReaction, react: User | PartialUser) {
     const checkmark = '✅'
     const not_going = '🚫'
