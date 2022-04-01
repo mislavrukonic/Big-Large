@@ -6,7 +6,7 @@ export default {
     category: 'testing',
     description: 'schedule an event',
     slash: true,
-    //testOnly: true, 
+    testOnly: true, 
     permissions: ["ADMINISTRATOR"],
     options: [
         {
