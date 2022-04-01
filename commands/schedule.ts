@@ -1,6 +1,9 @@
 import Discord, { MessageEmbed } from "discord.js";
 import { ICommand } from "wokcommands";
 
+/**
+ * template file for the original embed, when first sent.
+ */
 export default {
     category: 'testing',
     description: 'schedule an event',
