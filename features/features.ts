@@ -36,7 +36,6 @@ export default (client: Client) => {
   client.on('messageReactionAdd', async (message, react) => {
     if(message.message.reactions.cache.size > 3) message.remove()
     await updateParticipantCount(message, react)
-    
   })
 
   client.on('messageReactionRemove', async (message, react) => {
