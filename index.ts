@@ -19,7 +19,7 @@ client.on('ready', () => {
         commandDir: path.join(__dirname, 'commands'),
         featureDir: path.join(__dirname, 'features'),
         typeScript: true,
-        testServers: ['766422643670384650']
+        testServers: process.env.TESTSERVER
     })
 })
 
