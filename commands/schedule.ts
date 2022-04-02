@@ -3,6 +3,21 @@ import { ICommand } from "wokcommands";
 
 /**
  * template file for the original embed, when first sent.
+ * 
+ * using the wokcommands library, it makes it simple
+ * to organize how your embedded message (or any other message)
+ * will be displayed
+ * 
+ * the category, slash, testOnly, and permissions fields are
+ * not displayed in the bot command itself
+ * 
+ * the description filed is shown when the user types in the command
+ * to initiate the creation of an evet: /schedule
+ * 
+ * the options field holds all the template fields with which the user will set 
+ * arguments. for example, the first option will ask the user to type in a title 
+ * for their event, and then they will tab to the next option, etc.
+ * 
  */
 export default {
     category: 'testing',
@@ -31,6 +46,30 @@ export default {
             type: 3
         }
     ],
+    /**
+     * this callback method is a wokcommands feature. 
+     * it is invoked whenever the command is ran by a 
+     * user. each object passed in allows us to 
+     * interact with the properties of the channel, 
+     * server, and message. 
+     * 
+     * here, a new embedded message is being created,
+     * with all of its methods setting the contents
+     * based off of the options the user has input 
+     * (see above).
+     * 
+     * the interaction object is used for slash commands,
+     * and it will reply with the embed (message).
+     * 
+     * to be able to add reactions automatically to the 
+     * message, we must first get the id of the sent message, 
+     * and then react on in.
+     * 
+     * @param user
+     * @param channel
+     * @param args
+     * @param interaction
+     */
     callback: async ({user, channel, args, interaction}) => {
         const checkmark = '✅'
         const not_going = '🚫'
