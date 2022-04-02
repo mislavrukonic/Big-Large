@@ -4,6 +4,9 @@ import { Client, MessageReaction, PartialMessageReaction, PartialUser, User } fr
  * async function updateParticipantCount
  * since the original schedule.ts embed cannot be changed dynamically,
  * we fetch it here and can modify the count of reactions.
+ * 
+ * this will edit the original messsage, hence the "(edited)" 
+ * notification above the message itself.
  * @param message 
  * @param react 
  */
@@ -39,6 +42,14 @@ async function updateParticipantCount(message: MessageReaction | PartialMessageR
     }
 }
 
+/**
+ * the actual exported module, which is triggered
+ * whenever the user reacts to the message
+ * which the bot sent.
+ * 
+ * works for both adding and removing a reaction
+ * to/from the message.
+ */
 export default (client: Client) => {
   client.on('messageReactionAdd', async (message, react) => {
     if(message.message.reactions.cache.size > 3) message.remove()
