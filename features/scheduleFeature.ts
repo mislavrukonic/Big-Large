@@ -54,7 +54,7 @@ export default (client: Client) => {
   client.on('messageReactionAdd', async (message, react) => {
     if(react.bot) return
     message.message.reactions.cache.map(x=>{
-        if(message.message.reactions.cache.size > 3) {
+        if(x.message.reactions.cache.size > 3) {
             message.remove()
         } else if(x.emoji.name != message.emoji.name && x.users.cache.has(react.id) && react.bot === false) x.users.remove(react.id)
     })
