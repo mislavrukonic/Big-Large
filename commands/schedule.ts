@@ -20,10 +20,11 @@ import { ICommand } from "wokcommands";
  * 
  */
 export default {
-    category: 'testing',
-    description: 'schedule an event',
+    category: 'Organization',
+    description: 'Schedules an event',
     slash: true,
     testOnly: true, 
+    expectedArgs: "<title> <description> <color>",
     permissions: ["ADMINISTRATOR"],
     options: [
         {
