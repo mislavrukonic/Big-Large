@@ -38,14 +38,19 @@ const client = new Discord.Client({
  * take up to an hour to register a command to a live server.
  */
 client.on('ready', () => {
-    console.log('Manager is online!')
+    console.log('Bot is online!')
     
     new wok(client, {
         commandDir: path.join(__dirname, 'commands'),
         featureDir: path.join(__dirname, 'features'),
         typeScript: true,
         testServers: process.env.TESTSERVER
-    })
+    }).setCategorySettings([
+        {
+            name: 'Organization',
+            emoji: '✏️'
+        }
+    ])
 })
 
 
